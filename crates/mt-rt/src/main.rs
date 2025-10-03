@@ -1,32 +1,50 @@
 #![no_std]
 #![no_main]
 
-use cortex_m_rt::entry;
-use panic_halt as _;
+use defmt_rtt as _;
+use panic_probe as _;
 
-use nrf52840_hal as hal;
-use hal::pac;
-use hal::gpio::p0::Parts;
-use hal::gpio::Level;
-use embedded_hal::digital::{OutputPin};
+#[defmt::panic_handler]
+fn panic() -> ! {
+    panic_probe::hard_fault()
+}
 
-use hal::Delay;
-use embedded_hal::delay::DelayNs;
+use embassy_executor::Spawner;
+use embassy_time::{
+    Timer, 
+    Duration
+};
+use embassy_nrf::{
+    gpio::{
+        Level, 
+        Output,
+        OutputDrive
+    }, 
+    bind_interrupts,
+    config::Config
+};
 
-#[entry]
-fn main() -> ! {
-    let p = pac::Peripherals::take().unwrap();
-    let port0 = Parts::new(p.P0);
+bind_interrupts!(struct Irqs {
+    // Add interrupts here if needed
+});
 
-    let mut led = port0.p0_15.into_push_pull_output(Level::Low);
+#[embassy_executor::main]
+async fn main(spawner: Spawner) {
+    let config = Config::default();
+    let p = embassy_nrf::init(config);
+    let output_config = OutputDrive::Standard;
+    let led: Output<'static> = Output::new(p.P0_15, Level::Low, output_config);
+    spawner.spawn(blinker(led)).unwrap();
+}
 
-    let core_p = pac::CorePeripherals::take().unwrap();
-    let mut delay = Delay::new(core_p.SYST); 
-
+#[embassy_executor::task]
+async fn blinker(mut led: Output<'static>) {
     loop {
-        led.set_high().ok();
-        delay.delay_ns(1_000_000_000); 
-        led.set_low().ok();
-        delay.delay_ns(1_000_000_000);
+        led.set_high(); 
+        defmt::info!("LED ON");
+        Timer::after(Duration::from_secs(2)).await;
+        led.set_low();
+        defmt::info!("LED OFF");
+        Timer::after(Duration::from_secs(2)).await;
     }
 }
