@@ -14,3 +14,6 @@ runner = "probe-rs run --chip nRF52840_xxAA --log-format=oneline"
 [alias]
 rb = "run --bin"
 rrb = "run --release --bin"
+
+[env]
+DEFMT_LOG = "trace"
