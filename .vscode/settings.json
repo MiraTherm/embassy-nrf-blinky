@@ -7,12 +7,24 @@
     "rust-analyzer.lens.enable": false,
     "VsCodeTaskButtons.tasks": [
         {
-            "label": "$(play) Run",
-            "task": "cargo run"
+            "label": "$(tools) Build",
+            "task": "cargo build"
         },
         {
             "label": "$(check) Test",
             "task": "cargo test"
+        },
+        {
+            "label": "$(play) Run",
+            "task": "cargo run"
+        },
+        {
+            "label": "$(trash) Clean",
+            "task": "cargo clean"
+        },
+        {
+            "label": "$(clear-all) Erase",
+            "task": "probe-rs erase"
         }
     ]
 }
