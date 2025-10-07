@@ -1,0 +1,17 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "cargo run",
+            "command": "cargo run",
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "cargo test",
+            "command": "cargo test",
+            "problemMatcher": []
+        }
+    ],
+    "version": "2.0.0"
+}

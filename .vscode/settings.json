@@ -1,7 +1,17 @@
 {
+    "rust-analyzer.check.command": "clippy",
     "rust-analyzer.check.allTargets": false,
     "rust-analyzer.check.extraArgs": [
         "--bins"
     ],
-    "rust-analyzer.check.command": "clippy"
+    "VsCodeTaskButtons.tasks": [
+        {
+            "label": "$(play) Run",
+            "task": "cargo run"
+        },
+        {
+            "label": "$(check) Test",
+            "task": "cargo test"
+        }
+    ]
 }
