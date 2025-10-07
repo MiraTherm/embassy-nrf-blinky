@@ -1,6 +1,7 @@
 [build]
 target = "thumbv7em-none-eabihf"
 rustflags = [
+    "-C", "linker=flip-link",
     "-C", "link-arg=-Tlink.x",
     "-C", "link-arg=-Tdefmt.x",
     "-C", "link-arg=--nmagic",
@@ -8,4 +9,8 @@ rustflags = [
 
 
 [target.thumbv7em-none-eabihf]
-runner = "probe-rs run --chip nRF52840_xxAA"
+runner = "probe-rs run --chip nRF52840_xxAA --log-format=oneline"
+
+[alias]
+rb = "run --bin"
+rrb = "run --release --bin"

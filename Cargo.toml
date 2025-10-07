@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "crates/defmt-rtt-integration",
     "crates/mt-rt"
     ]
 resolver = "3"
@@ -19,9 +20,15 @@ embassy-time = { version = "0.5.0", features = ["tick-hz-32_768", "defmt", "defm
 defmt = "1.0.1"
 defmt-rtt = "1.0.0"
 panic-probe = { version = "1.0.0", features = ["print-defmt"] }
+semihosting = "0.1.20"
+defmt-test = "0.4.0"
 
 [profile.dev]
-panic = "abort"
+opt-level = 's'
+codegen-units = 1
 
 [profile.release]
-panic = "abort"
+opt-level = 's'
+codegen-units = 1
+lto = 'fat'
+debug = 2

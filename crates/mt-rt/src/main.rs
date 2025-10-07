@@ -3,11 +3,7 @@
 
 use defmt_rtt as _;
 use panic_probe as _;
-
-#[defmt::panic_handler]
-fn panic() -> ! {
-    panic_probe::hard_fault()
-}
+use embassy_nrf as _;
 
 use embassy_executor::Spawner;
 use embassy_time::{
@@ -42,9 +38,9 @@ async fn blinker(mut led: Output<'static>) {
     loop {
         led.set_high(); 
         defmt::info!("LED ON");
-        Timer::after(Duration::from_secs(2)).await;
+        Timer::after(Duration::from_secs(1)).await;
         led.set_low();
         defmt::info!("LED OFF");
-        Timer::after(Duration::from_secs(2)).await;
+        Timer::after(Duration::from_secs(1)).await;
     }
 }

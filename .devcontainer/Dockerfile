@@ -9,4 +9,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN curl --proto '=https' --tlsv1.2 -LsSf https://github.com/probe-rs/probe-rs/releases/download/v0.29.1/probe-rs-tools-installer.sh | sh
 
+RUN cargo install flip-link
+
 RUN mkdir -p /workspaces/miratherm-radiator-thermostat-software
