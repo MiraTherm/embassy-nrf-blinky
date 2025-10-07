@@ -4,6 +4,7 @@
     "rust-analyzer.check.extraArgs": [
         "--bins"
     ],
+    "rust-analyzer.lens.enable": false,
     "VsCodeTaskButtons.tasks": [
         {
             "label": "$(play) Run",
