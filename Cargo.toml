@@ -1,6 +1,5 @@
 [workspace]
 members = [
-    "crates/defmt-rtt-integration",
     "crates/mt-rt"
     ]
 resolver = "3"

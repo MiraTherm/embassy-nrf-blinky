@@ -191,20 +191,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "defmt-rtt-integration"
-version = "0.1.0"
-dependencies = [
- "cortex-m",
- "cortex-m-rt",
- "defmt",
- "defmt-rtt",
- "defmt-test",
- "embassy-nrf",
- "panic-probe",
- "semihosting",
-]
-
-[[package]]
 name = "defmt-test"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -643,12 +629,6 @@ checksum = "138e3e0acb6c9fb258b19b67cb8abd63c00679d2851805ea151465464fe9030a"
 dependencies = [
  "semver",
 ]
-
-[[package]]
-name = "semihosting"
-version = "0.1.20"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c3e1c7d2b77d80283c750a39c52f1ab4d17234e8f30bca43550f5b2375f41d5f"
 
 [[package]]
 name = "semver"
