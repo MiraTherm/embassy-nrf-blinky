@@ -11,7 +11,10 @@ Integrated:
     - defmt
     - testing
 
-Tested on WSL2 using `usbipd`.
+Tested on:
+ - Pro Micro nRF52840 dev board
+ - J-Link EDU Mini
+ - WSL2 using `usbipd`
 
 ## License
 
