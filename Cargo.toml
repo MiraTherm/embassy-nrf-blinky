@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "crates/mt-rt"
+    "crates/main"
     ]
 resolver = "3"
 

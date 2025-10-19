@@ -1,5 +1,5 @@
 [package]
-name = "mt-rt"
+name = "main"
 version = "0.1.0"
 edition.workspace = true
 rust-version.workspace = true
@@ -19,7 +19,7 @@ panic-probe = { workspace = true }
 defmt-test = { workspace = true }
 
 [[bin]]
-name = "mt-rt"
+name = "main"
 test = false
 
 [[test]]
