@@ -16,6 +16,6 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.Xauthority:/root/.Xauthority
       - /dev/bus/usb/:/dev/bus/usb
-      - ..:/workspaces/miratherm-radiator-thermostat-software:cached
+      - ..:/workspace:cached
     network_mode: host
     command: sleep infinity

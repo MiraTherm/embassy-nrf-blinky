@@ -11,4 +11,4 @@ RUN curl --proto '=https' --tlsv1.2 -LsSf https://github.com/probe-rs/probe-rs/r
 
 RUN cargo install flip-link
 
-RUN mkdir -p /workspaces/miratherm-radiator-thermostat-software
+RUN mkdir -p /workspace
