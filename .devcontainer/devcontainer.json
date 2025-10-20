@@ -1,5 +1,5 @@
 {
-	"name": "nRF52 Rust",
+	"name": "Embedded Rust",
   	"dockerComposeFile": "docker-compose.yml",
 	"service": "devcontainer",
   	"shutdownAction": "stopCompose",
